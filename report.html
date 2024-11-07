@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script
+      type="text/javascript"
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"
+    ></script>
+<title>report.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="thermodynamic-property-chart-generation-for-a-single-component-material">Thermodynamic Property Chart Generation for a Single-Component Material</h1>
+<h2 id="objective">Objective</h2>
+<p>Generate a comprehensive set of thermodynamic property charts for a chosen single-component material, using accessible data for ideal gas specific heat and a suitable volumetric equation of state (EoS). The following key thermodynamic properties should be analyzed and visualized:</p>
+<ul>
+<li>Pressure-Volume (P-V) Diagram</li>
+<li>Pressure-Enthalpy (P-H) Diagram</li>
+<li>Temperature-Entropy (T-S) Diagram</li>
+<li>Other relevant property plots as necessary</li>
+</ul>
+<h2 id="material-selection">Material Selection</h2>
+<p>Select a material with:</p>
+<ul>
+<li>Available data for <strong>ideal gas specific heat</strong> values (e.g., ( C_p ), ( C_v ))</li>
+<li><strong>Equation of State</strong> (EoS) data to account for real gas behavior (e.g., van der Waals, Redlich-Kwong, Peng-Robinson EoS)</li>
+</ul>
+<h2 id="methodology">Methodology</h2>
+<h3 id="step-1-gather-data">Step 1: Gather Data</h3>
+<ol>
+<li><strong>Ideal Gas Properties</strong>: Obtain specific heat values ( C_p ) and ( C_v ) as functions of temperature, ideally in a tabulated or empirical form.</li>
+<li><strong>Volumetric Equation of State</strong>: Choose a suitable EoS for the material to model P-V-T behavior, options:
+<ul>
+<li><strong>Ideal Gas Law</strong> (for ideal behavior approximations)</li>
+<li><strong>van der Waals EoS</strong></li>
+<li><strong>Peng-Robinson EoS</strong></li>
+<li><strong>Redlich-Kwong EoS</strong></li>
+</ul>
+</li>
+</ol>
+<h3 id="step-2-code-based-calculation">Step 2: Code-Based Calculation</h3>
+<p>Develop a Python script to calculate thermodynamic properties:</p>
+<ul>
+<li><strong>Pressure (P)</strong>, <strong>Volume (V)</strong>, <strong>Enthalpy (H)</strong>, <strong>Entropy (S)</strong>, and <strong>Temperature (T)</strong> based on the selected material's properties and EoS.</li>
+<li>Use fundamental thermodynamic relationships and properties from the EoS to derive values.</li>
+</ul>
+<h3 id="step-3-define-property-relationships">Step 3: Define Property Relationships</h3>
+<ol>
+<li><strong>P-V Relationship</strong>: Use the EoS to model isotherms across a range of volumes and pressures.</li>
+<li><strong>P-H Relationship</strong>: Integrate enthalpy values at different states, leveraging the specific heat data and EoS.</li>
+<li><strong>T-S Relationship</strong>: Calculate entropy changes for isobaric conditions using specific heat data.</li>
+</ol>
+<h3 id="step-4-visualize-thermodynamic-properties">Step 4: Visualize Thermodynamic Properties</h3>
+<p>Plot each property using Python's <code>Plotly</code> or a similar library. Suggested visualizations:</p>
+<ul>
+<li><strong>P-V Diagram</strong>: Plot isotherms on a P-V graph.</li>
+<li><strong>P-H Diagram</strong>: Plot isotherms on a P-H graph.</li>
+<li><strong>T-S Diagram</strong>: Plot isobars  on a T-S graph.</li>
+<li><strong>P-S Diagram</strong>: Plot isotherms on a P-S graph.</li>
+</ul>
+<h3 id="step-5-validation-and-comparison">Step 5: Validation and Comparison</h3>
+<p>Compare the calculated outputs with experimental data when available to ensure model accuracy.</p>
+<h1 id="thermodynamic-properties-analysis-of-formaldehyde">Thermodynamic Properties Analysis of Formaldehyde</h1>
+<h2 id="compound-selection-formaldehyde">Compound Selection: Formaldehyde</h2>
+<p>Formaldehyde was selected for this analysis due to its significant industrial and medical applications. Formaldehyde and its derivatives play a crucial role in the upstream supply chain, aiding in the production of compounds essential for life-saving medical devices, such as:</p>
+<ul>
+<li><strong>Pacemakers</strong></li>
+<li><strong>Artificial heart valves</strong></li>
+<li><strong>Prostheses</strong></li>
+</ul>
+<p>In addition to its use in manufacturing medical devices, formaldehyde is well known as a preservative in medical laboratories and is commonly used as a sterilizing agent. Key applications in the pharmaceutical and medical industries include:</p>
+<ul>
+<li>
+<p><strong>Anti-infective drugs</strong>: Formaldehyde serves as an active ingredient, promoting maximum absorption in gel capsules.</p>
+</li>
+<li>
+<p><strong>Vaccine Production</strong>: Formaldehyde is used to inactivate viruses and detoxify bacterial toxins in vaccines, including those for:</p>
+<ul>
+<li>Influenza</li>
+<li>Polio</li>
+<li>Cholera</li>
+<li>Hepatitis A</li>
+<li>Diphtheria</li>
+<li>Tetanus</li>
+</ul>
+</li>
+<li>
+<p><strong>Medical Research</strong>: Formaldehyde is widely used in pharmaceutical research, especially in the fields of <strong>proteomics</strong> and <strong>genomics</strong>.</p>
+</li>
+</ul>
+<p><img src="./Picture1.png" alt="Image Placeholder"></p>
+<h2 id="data-source">Data Source</h2>
+<p>The thermodynamic properties data for formaldehyde used in this analysis is derived from the following source:</p>
+<blockquote>
+<p>Koo, Raymond H. (1961). <em>Thermodynamic Properties of Formaldehyde</em>. Master's Thesis, Newark College of Engineering, New Jersey Institute of Technology. Available at: <a href="https://digitalcommons.njit.edu/cgi/viewcontent.cgi?article=2539&amp;context=theses">Digital Commons @ NJIT</a></p>
+</blockquote>
+<p>This source provides essential information on formaldehyde's thermodynamic properties, including specific heats, enthalpy, entropy, and equations of state, which are foundational for generating accurate property charts.</p>
+<h1 id="constants-in-si-units">Constants in SI Units</h1>
+<ul>
+<li><strong>Trs</strong>: Reference temperature = 298.15 K</li>
+</ul>
+<h2 id="specific-heat-capacity-cp-constants">Specific Heat Capacity <code>C_p</code> Constants</h2>
+<p>The following constants are used to calculate the specific heat capacity at constant pressure <code>C_p</code> for formaldehyde:</p>
+<ul>
+<li><strong>( a_1 )</strong>: 39.6463 J/mol</li>
+<li><strong>( b_1 )</strong>: 0.03825 J/(mol·K)</li>
+<li><strong>( c_1 )</strong>: -2.6776 × 10⁻⁶ J/(mol·K²)</li>
+</ul>
+<p>The ( C_p ) value for formaldehyde can be expressed as a temperature-dependent equation:</p>
+<p>$$
+C_p(T) = a_1 + b_1 \cdot T + c_1 \cdot T^2
+$$</p>
+<p>where:</p>
+<ul>
+<li><strong>( T )</strong> is the temperature in Kelvin (K)</li>
+<li><strong>( C_p(T) )</strong> is the specific heat capacity in J/(mol·K)</li>
+</ul>
+<p>This equation provides the temperature-dependent ( C_p ) values, which are essential for calculating enthalpy and entropy changes across different thermodynamic states.</p>
+<ul>
+<li><strong>R</strong>: Ideal gas constant = 8.314 J/(mol·K)</li>
+<li><strong>Tc</strong>: Critical temperature = 414.48 K</li>
+<li><strong>Pc</strong>: Critical pressure = 6.8 × 10⁶ Pa</li>
+<li><strong>ω</strong>: Acentric factor (dimensionless) = 0.215</li>
+</ul>
+<h2 id="peng-robinson-equation-parameters">Peng-Robinson Equation Parameters</h2>
+<p>The Peng-Robinson equation of state is used to model the thermodynamic behavior of formaldehyde. The parameters for the equation are calculated as follows:</p>
+<ul>
+<li>
+<p><strong>a</strong>: Attraction parameter<br>
+$$ a = 0.45724 \times \frac{R^2 \times Tc^2}{Pc} $$
+Resulting units: Pa·m⁶ / mol²</p>
+</li>
+<li>
+<p><strong>b</strong>: Repulsion parameter<br>
+$$ b = 0.07780 \times \frac{R \times Tc}{Pc} $$
+Resulting units: m³ / mol</p>
+</li>
+</ul>
+<p>These parameters are essential for calculating properties such as pressure and volume under various temperature conditions, providing a more accurate model for real gas behavior.</p>
+<h1 id="peng-robinson-equation-of-state">Peng-Robinson Equation of State</h1>
+<p>To calculate the <strong>Peng-Robinson equation of state</strong> with temperature dependence, the following parameters and equations are used:</p>
+<h3 id="1-temperature-dependent-parameter--alpha">1. Temperature-Dependent Parameter ( \alpha ):</h3>
+<p>$$
+k = 0.37464 + 1.54226 \cdot \omega - 0.26992 \cdot \omega^2
+$$</p>
+<p>$$
+\alpha = \left( 1 + k \cdot \left( 1 - \sqrt{\frac{T}{T_c}} \right) \right)^2
+$$</p>
+<h3 id="2-peng-robinson-equation-of-state">2. Peng-Robinson Equation of State:</h3>
+<p>$$
+P = \frac{R \cdot T}{V_m - b} - \frac{a \cdot \alpha}{V_m^2 + 2 \cdot b \cdot V_m - b^2}
+$$</p>
+<p>where:</p>
+<ul>
+<li>( T ) is the temperature,</li>
+<li>( T_c ) is the critical temperature,</li>
+<li>( \omega ) is the acentric factor,</li>
+<li>( R ) is the ideal gas constant,</li>
+<li>( a ) and ( b ) are Peng-Robinson constants, and</li>
+<li>( V_m ) is the molar volume.</li>
+</ul>
+<h1 id="libraries-used-in-the-project">Libraries Used in the Project</h1>
+<h2 id="1-numpy">1. <strong>NumPy</strong></h2>
+<ul>
+<li><strong>Installation</strong>: <code>%pip install numpy</code></li>
+<li><strong>Description</strong>: NumPy is a fundamental library for numerical computations in Python, providing support for multi-dimensional arrays and mathematical functions.</li>
+<li><strong>Usage in This Project</strong>:
+<ul>
+<li><strong>Array Operations</strong>: NumPy is used to manage arrays and vectors, which store values like temperature, pressure, and volume at different stages of calculations. This improves the efficiency of the data processing and ensures that the operations are fast and memory-efficient.</li>
+<li><strong>Mathematical Functions</strong>: Functions like <code>np.sqrt()</code>, <code>np.log()</code>, and <code>np.real()</code> are used to perform essential mathematical operations required in the Peng-Robinson equation of state, optimization, and the calculation of compressibility factors and enthalpy.</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-scipy">2. <strong>SciPy</strong></h2>
+<ul>
+<li><strong>Installation</strong>: <code>%pip install scipy</code></li>
+<li><strong>Description</strong>: SciPy is an open-source library built on top of NumPy, extending its functionality for advanced scientific and technical computing. It contains modules for optimization, integration, interpolation, and other mathematical operations.</li>
+<li><strong>Usage in This Project</strong>:
+<ul>
+<li><strong>Optimization</strong>: The <code>scipy.optimize.minimize_scalar</code> function is used to perform optimization tasks on the volume (<code>Vm</code>) in the Peng-Robinson equation to find the minimum and maximum pressures for a given temperature. This is essential for calculating the pressure and volume relationship and determining the saturation pressure at different temperatures.</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-plotly">3. <strong>Plotly</strong></h2>
+<ul>
+<li><strong>Installation</strong>: <code>%pip install plotly</code></li>
+<li><strong>Description</strong>: Plotly is a graphing library used for interactive data visualization in Python, allowing for the creation of customizable and visually appealing plots.</li>
+<li><strong>Usage in This Project</strong>:
+<ul>
+<li><strong>Interactive Plotting</strong>: Plotly is used to plot the enthalpy (<code>H</code>) vs pressure (<code>P</code>) curves at different temperatures. The <code>go.Figure()</code> and <code>go.Scatter()</code> functions help in creating interactive line plots, making it easier to analyze and visualize the relationships between the properties of formaldehyde (e.g., pressure, volume, and enthalpy) at different temperatures.</li>
+<li><strong>Visualization</strong>: The plots provide insight into the behavior of the system, showing the changes in enthalpy as the pressure varies for each temperature, and allowing users to interact with the plot for better understanding.</li>
+</ul>
+</li>
+</ul>
+<h1 id="pressure-volume-p-v-diagram">Pressure-Volume (P-V) Diagram</h1>
+<h2 id="psaturation-calculation-using-cubic-equation">P_saturation Calculation using Cubic Equation</h2>
+<h2 id="overview">Overview</h2>
+<p>This part documents two Python functions used to solve a cubic equation and calculate thermodynamic properties of a gas. These properties include the compressibility factors (Z1) and (Z3) and the molar volumes (V1) and (V3) at a specified temperature (T) and pressure (P).</p>
+<h2 id="functions">Functions</h2>
+<h3 id="solvecubica-b"><code>solve_cubic(A, B)</code></h3>
+<h2 id="cubic-equation-in-terms-of--z">Cubic Equation in Terms of ( Z )</h2>
+<p>The cubic equation for the compressibility factor ( Z ) is given by:</p>
+<p>$$
+Z^3 - (1 - B)Z^2 + \left(A - 3B^2 - 2B\right)Z - (AB - B^2 - B^3) = 0
+$$</p>
+<h3 id="explanation-of-terms">Explanation of Terms:</h3>
+<ul>
+<li><strong>( Z )</strong>: Compressibility factor.</li>
+</ul>
+<p>This equation is solved to find the possible values of ( Z ), which correspond to different phases or states (e.g., gas and liquid phases) of a substance under specified temperature and pressure conditions.
+This function formulates and solves a cubic equation based on inputs (A) and (B), returning only the real roots.</p>
+<!-- Z1 = minimum of root Z3 = max -->
+<p>we obtain multiple roots, which represent possible values of ( Z ) under the given conditions.</p>
+<h3 id="interpretation-of-the-roots">Interpretation of the Roots</h3>
+<ul>
+<li><strong>Phase Coexistence</strong>: When three real roots are present, it suggests that two phases (typically liquid and vapor) are in equilibrium. In this case:
+<ul>
+<li>The smallest root ( Z_1 ) typically corresponds to the <strong>liquid phase</strong>.</li>
+<li>The largest root ( Z_3 ) corresponds to the <strong>vapor (gas) phase</strong>.</li>
+<li>The middle root, which is generally disregarded physically, appears due to the mathematical formulation but does not represent a stable phase.</li>
+</ul>
+</li>
+</ul>
+<h3 id="importance">Importance</h3>
+<p>This behavior is particularly relevant near the critical point and in phase transition regions, where both liquid and vapor phases coexist at equilibrium, giving rise to a two-phase system. The compressibility factors associated with ( Z_1 ) and ( Z_3 ) help predict the behavior of each phase under given conditions.</p>
+<h2 id="definitions-of-parameters--a--and--b">Definitions of Parameters ( A ) and ( B )</h2>
+<p>The parameters ( A ) and ( B ) are calculated using the following equations, based on temperature ( T ), pressure ( P ), and critical properties of the substance (critical temperature ( T_c ) and critical pressure ( P_c )).</p>
+<h3 id="equation-for--a">Equation for ( A )</h3>
+<p>The parameter ( A ) represents the attractive forces between molecules and is given by:</p>
+<p>$$
+A = \frac{0.45724 \cdot R^2 \cdot T_c^2}{P_c} \cdot \left(1 + \kappa \cdot \left(1 - \sqrt{\frac{T}{T_c}}\right)\right)^2 \cdot \frac{P}{(R \cdot T)^2}
+$$</p>
+<p>where:</p>
+<ul>
+<li>( R ) is the gas constant.</li>
+<li>( \kappa ) is a parameter that depends on the acentric factor ( \omega ) of the substance:</li>
+</ul>
+<p>$$
+\kappa = 0.37464 + 1.54226 \cdot \omega - 0.26992 \cdot \omega^2
+$$</p>
+<h3 id="equation-for--b">Equation for ( B )</h3>
+<p>The parameter ( B ) represents the volume excluded by molecules due to their finite size and is calculated as:</p>
+<p>$$
+B = \frac{0.07780 \cdot R \cdot T_c}{P_c} \cdot \frac{P}{R \cdot T}
+$$</p>
+<h3 id="summary">Summary</h3>
+<ul>
+<li><strong>( A )</strong> accounts for intermolecular attractive forces and varies with temperature and pressure.</li>
+<li><strong>( B )</strong> accounts for the finite volume of molecules and varies with temperature and pressure.</li>
+</ul>
+<p>These parameters are used in the cubic equation to solve for the compressibility factor ( Z ) and analyze phase behavior.</p>
+<h4 id="returns">Returns:</h4>
+<ul>
+<li>Real roots of the cubic equation, which represent the possible values for the compressibility factor (Z).</li>
+</ul>
+<h4 id="code">Code:</h4>
+<pre class="hljs"><code><div><span class="hljs-comment"># Calculate Z values</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">solve_cubic</span><span class="hljs-params">(A, B)</span>:</span>
+    coeffs = [<span class="hljs-number">1</span>, -(<span class="hljs-number">1</span> - B), A - <span class="hljs-number">3</span> * B**<span class="hljs-number">2</span> - <span class="hljs-number">2</span> * B, -(A * B - B**<span class="hljs-number">2</span> - B**<span class="hljs-number">3</span>)]
+    roots = np.roots(coeffs)
+    <span class="hljs-keyword">return</span> np.real(roots[np.isreal(roots)])   <span class="hljs-comment"># Only real roots</span>
+
+<span class="hljs-comment"># Calculate properties</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">calculate_properties</span><span class="hljs-params">(T, P)</span>:</span>
+    A = calc_a(T) * P / (R * T)**<span class="hljs-number">2</span>
+    B = calc_b() * P / (R * T)
+    Z_values = solve_cubic(A, B)
+    Z1, Z3 = np.min(Z_values), np.max(Z_values)
+    V1 = Z1 * R * T / P  <span class="hljs-comment"># m^3/mol</span>
+    V3 = Z3 * R * T / P  <span class="hljs-comment"># m^3/mol</span>
+    <span class="hljs-keyword">return</span> Z1, Z3, V1, V3
+</div></code></pre>
+<h2 id="detailed-explanation-of-computeintegral-function">Detailed Explanation of <code>compute_integral</code> Function</h2>
+<pre class="hljs"><code><div><span class="hljs-comment"># Integrate using compute_integral</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compute_integral</span><span class="hljs-params">(P, R, T, a, b, P_min, k=<span class="hljs-number">0.001</span>)</span>:</span>
+    Z1, Z3, V1, V2 = calculate_properties(T, P)
+    kappa = <span class="hljs-number">0.37464</span> + <span class="hljs-number">1.54226</span> * w - <span class="hljs-number">0.26992</span> * w**<span class="hljs-number">2</span>
+    alpha = (<span class="hljs-number">1</span> + kappa * (<span class="hljs-number">1</span> - np.sqrt(T / Tc)))**<span class="hljs-number">2</span>
+    a = a * alpha
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">integral_function</span><span class="hljs-params">(V)</span>:</span>
+        term1 = R * T * np.log(abs(V - b))
+        term2 = -(a / (<span class="hljs-number">2</span> * b * np.sqrt(<span class="hljs-number">2</span>))) * np.log(abs((V + b - b * np.sqrt(<span class="hljs-number">2</span>)) / (V + b + b * np.sqrt(<span class="hljs-number">2</span>))))
+        <span class="hljs-keyword">return</span> term1 + term2
+    integral_value = integral_function(V2) - integral_function(V1)
+    <span class="hljs-keyword">while</span> P &gt; P_min:
+        residual = integral_value - (V2 - V1) * P
+        <span class="hljs-keyword">if</span> abs(residual) &lt; k:
+            <span class="hljs-keyword">return</span> P
+        P -= <span class="hljs-number">1</span>  
+    print(<span class="hljs-string">"Stopped as P reached P_min without convergence."</span>)
+    <span class="hljs-keyword">return</span> P
+</div></code></pre>
+<embed src="proof.pdf" width="800px" height="600px" />
+<p>The <code>compute_integral</code> function is designed to perform an integration-based calculation on a thermodynamic system at specific conditions of pressure ( P ), temperature ( T ), and system constants. It iteratively adjusts the pressure ( P ) until a certain residual condition is met or a minimum pressure ( P_min) is reached. This function uses properties like compressibility factors and molar volumes to evaluate the behavior of the system and employs a tolerance ( k ) to determine when the calculated value converges.</p>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li><strong>( P )</strong>: Initial pressure at which the integration begins.</li>
+<li><strong>( T )</strong>: Temperature of the system.</li>
+<li><strong>( P_min )</strong>: Minimum allowable pressure before stopping the iterative process.</li>
+<li><strong>( k )</strong>: Convergence tolerance for the residual condition.</li>
+</ul>
+<h3 id="function-workflow">Function Workflow</h3>
+<ol>
+<li>
+<p><strong>Calculate Thermodynamic Properties</strong>:</p>
+<ul>
+<li>The function <code>calculate_properties(T, P)</code> is called to obtain four key properties:
+<ul>
+<li><strong>( Z_1 )</strong>: The minimum compressibility factor.</li>
+<li><strong>( Z_3 )</strong>: The maximum compressibility factor.</li>
+<li><strong>( V_1 )</strong>: Molar volume corresponding to ( Z_1 ).</li>
+<li><strong>( V_2 )</strong>: Molar volume corresponding to ( Z_3 ).</li>
+</ul>
+</li>
+<li>These properties will be used to compute the integral and assess phase behavior.</li>
+</ul>
+</li>
+<li>
+<p><strong>Define the Integral Function</strong>:</p>
+<ul>
+<li>
+<p>The function <code>integral_function(V)</code> calculates the integral of the van der Waals equation of state over molar volume ( V ) from ( V_1 ) to ( V_2 ).</p>
+</li>
+<li>
+<p>It contains two terms:</p>
+<ul>
+<li><strong>Term 1</strong>: Contribution from the ideal gas term, which involves the logarithm of ( V - b ):
+$$
+\text{term1} = R \cdot T \cdot \log(|V - b|)
+$$</li>
+<li><strong>Term 2</strong>: Contribution from the attraction term ( a ), which is integrated over molar volume. This term is also logarithmic:
+$$
+\text{term2} = -\frac{a}{2 \cdot b \cdot \sqrt{2}} \cdot \log\left(\frac{|V + b - b \cdot \sqrt{2}|}{|V + b + b \cdot \sqrt{2}|}\right)
+$$</li>
+</ul>
+</li>
+<li>
+<p>The total value of the function is:</p>
+<ul>
+<li>integral_function(V) = term1 + term2</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Compute the Integral Value</strong>:</p>
+<ul>
+<li>
+<p>The integral over the molar volume range is calculated by evaluating the integral function at ( V_2 ) and ( V_1 ):</p>
+<p>integral_value = integral_function(V_2) - integral_function(V_1)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Iteratively Adjust Pressure ( P )</strong>:</p>
+<ul>
+<li>The function iterates while the pressure ( P ) is greater than P_min</li>
+<li>For each iteration:
+<ul>
+<li>
+<p>The <strong>residual</strong> is calculated as the difference between the integral value and the product of the molar volume range ((V_2 - V_1)) and the pressure ( P ):<br>
+residual = integral_value - (V_2 - V_1). P</p>
+</li>
+<li>
+<p>If the <strong>absolute value of the residual</strong> is less than the tolerance ( k ), the current pressure ( P ) is considered a converged solution, and the function returns this value of ( P ).</p>
+</li>
+<li>
+<p>If the residual condition is not met, ( P ) is decreased by 1 and the loop continues.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Stopping Condition</strong>:</p>
+<ul>
+<li>If ( P ) reaches <code>P_min</code> without satisfying the convergence condition, the loop terminates, and a message indicates that the minimum pressure was reached without convergence.</li>
+</ul>
+</li>
+</ol>
+<h4 id="1-temperature-range">1. Temperature Range</h4>
+<p>The temperature range is chosen to span from 314.48 K to just under 500 K, with increments of 20 K. This range is selected to explore the thermodynamic behavior of the substance under varying temperature conditions.</p>
+<pre class="hljs"><code><div>temperature_list = np.arange(<span class="hljs-number">314.48</span>, <span class="hljs-number">500</span>, <span class="hljs-number">20</span>)  <span class="hljs-comment"># K</span>
+</div></code></pre>
+<h4 id="2-pressure-range">2. Pressure Range</h4>
+<pre class="hljs"><code><div>pressure_values = np.linspace(<span class="hljs-number">1e5</span>, <span class="hljs-number">1e7</span>, <span class="hljs-number">10000</span>) <span class="hljs-comment"># Pa</span>
+</div></code></pre>
+<p>The pressure range used in this analysis spans from 100 kPa (1 × 10⁵ Pa) to 10 MPa (1 × 10⁷ Pa), with 10,000 equally spaced data points between these values. This range was selected to represent a wide range of pressures typically encountered in thermodynamic studies, especially when analyzing phase transitions or critical points of substances.</p>
+<p>By considering this broad pressure range, the study can capture various important thermodynamic behaviors, such as:</p>
+<ul>
+<li><strong>Phase Transitions</strong>: Between gas, liquid, and supercritical phases.</li>
+<li><strong>Critical Point Analysis</strong>: Exploring the conditions near the substance's critical point.</li>
+</ul>
+<h3 id="isotherm-creation-and-pressure-optimization">Isotherm Creation and Pressure Optimization</h3>
+<p>The code iterates over a set of temperatures in <code>temperature_list</code> to create <strong>isotherms</strong>—curves showing the relationship between molar volume (( V_m )) and pressure (( P )) at constant temperatures. For each temperature, the code identifies the molar volumes where the pressure reaches its maximum and minimum within a defined volume range.</p>
+<h4 id="key-steps">Key Steps</h4>
+<ol>
+<li>
+<p><strong>Optimization for Maximum Pressure</strong>:</p>
+<ul>
+<li>The first <code>minimize_scalar</code> function call identifies the molar volume that results in the maximum pressure at a specific temperature.</li>
+<li>To find the maximum, the code minimizes the negative of the <code>calculate_pressure</code> function.</li>
+<li>The result provides:
+<ul>
+<li><code>V_max</code>: The molar volume where maximum pressure is reached.</li>
+<li><code>P_max</code>: The maximum pressure itself, obtained by negating the minimized value (<code>-result.fun</code>).</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div>result = minimize_scalar(<span class="hljs-keyword">lambda</span> Vm: -calculate_pressure(Vm, T), bounds=(<span class="hljs-number">0.00005</span>, <span class="hljs-number">0.01</span>), method=<span class="hljs-string">'bounded'</span>)
+V_max = result.x
+P_max = -result.fun
+</div></code></pre>
+</li>
+</ol>
+<h3 id="volume-conditions">Volume Conditions</h3>
+<h4 id="condition-1">Condition 1</h4>
+<p>If <code>np.isclose(V1, V3, rtol=1e-4)</code> is <code>True</code>, meaning ( V_1 ) and ( V_3 ) are close to each other within a relative tolerance of ( 10^{-4} ), then ( V_1 ) is appended to <code>V_values</code>.</p>
+<ul>
+<li><strong>Implication</strong>: This suggests that the system may exist at single phase separation at this pressure, so the minimum volume ( V_1 ) is chosen as representative.</li>
+</ul>
+<h4 id="condition-2">Condition 2</h4>
+<p>If ( P ) is greater than the saturation pressure ( P_{sat} ), then ( V_1 ) is appended to <code>V_values</code>.</p>
+<ul>
+<li><strong>Implication</strong>: When the pressure is above the saturation point, the system is likely in a liquid two-phase region. The smaller volume ( V_1 ) is used to represent the liquid phase.</li>
+</ul>
+<h4 id="condition-3">Condition 3</h4>
+<p>If neither of the above conditions holds, then ( V_3 ) is appended to <code>V_values</code>.</p>
+<ul>
+<li><strong>Implication</strong>: This condition occurs when the pressure is below or near the saturation pressure, indicating a two-phase region where the larger volume ( V_3 ) may correspond to a vapor phase.</li>
+</ul>
+<pre class="hljs"><code><div>V_values = []
+    <span class="hljs-keyword">for</span> P <span class="hljs-keyword">in</span> pressure_values:
+        Z1, Z3, V1, V3 = calculate_properties(T, P)
+        <span class="hljs-keyword">if</span> np.isclose(V1, V3, rtol=<span class="hljs-number">1e-4</span>):
+            V_values.append(V1)
+        <span class="hljs-keyword">elif</span> P &gt; P_sat:
+            V_values.append(V1)
+        <span class="hljs-keyword">else</span>:
+            V_values.append(V3)
+</div></code></pre>
+<p><img src="./PvsV.png" alt="Volume vs Pressure Log-Scale Plot for Formaldehyde"></p>
+<h1 id="report-enthalpy-vs-pressure-for-formaldehyde-at-different-temperatures">Report: Enthalpy vs Pressure for Formaldehyde at Different Temperatures</h1>
+<h2 id="overview">Overview</h2>
+<p>This code models enthalpy as a function of pressure at various temperatures and visualizes the results in a plot.</p>
+<p>The model accounts for real gas behavior by incorporating parameters specific to formaldehyde and utilizes the Peng-Robinson cubic equation of state to determine compressibility factors, molar volumes, and other thermodynamic properties.</p>
+<h2 id="constants-and-parameters">Constants and Parameters</h2>
+<ol>
+<li><strong>Reference Values:</strong>
+<ul>
+<li>Reference Temperature, ( T_rs= 298.15 , K )</li>
+</ul>
+</li>
+</ol>
+<h2 id="functions">Functions</h2>
+<h3 id="2-compressibility-factor-calculation">2. <strong>Compressibility Factor Calculation</strong></h3>
+<ul>
+<li><strong><code>solve_cubic(A, B)</code></strong>: Solves the cubic equation to obtain real roots for the compressibility factor ( Z ).</li>
+<li><strong><code>calculate_properties(T, P)</code></strong>: Computes the compressibility factor ( Z ), molar volumes ( V ), and derived values for enthalpy calculations.</li>
+</ul>
+<h3 id="3-enthalpy-and-heat-capacity-calculation">3. <strong>Enthalpy and Heat Capacity Calculation</strong></h3>
+<ul>
+<li><strong><code>integral_Cp(T, Trs)</code></strong>: Integrates specific heat capacity from the reference temperature to the current temperature.</li>
+</ul>
+<pre class="hljs"><code><div>   <span class="hljs-comment"># Integrals for Cp and Cp/T</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">integral_Cp</span><span class="hljs-params">(T, P)</span>:</span>
+    term1 = a1 * (T - Trs)
+    term2 = (b1 / <span class="hljs-number">2</span>) * (T**<span class="hljs-number">2</span> - Trs**<span class="hljs-number">2</span>)
+    term3 = (c1 / <span class="hljs-number">3</span>) * (T**<span class="hljs-number">3</span> - Trs**<span class="hljs-number">3</span>)
+    <span class="hljs-keyword">return</span> term1 + term2 + term3
+</div></code></pre>
+<ul>
+<li><strong><code>delta_H(T, P)</code></strong>: Calculates the enthalpy change for both liquid and vapor states at the given ( T ) and ( P ).</li>
+</ul>
+<h4 id="1-integralcpt-p">1. <strong>integral_Cp(T, P)</strong></h4>
+<p>This function integrates the specific heat capacity from the reference temperature ( T_{rs} ) to the current temperature ( T ).</p>
+<ul>
+<li>
+<p><strong>Equation:</strong>
+The integral of specific heat capacity is calculated as the sum of three terms:
+$$
+\text{Integral}(C_p) = a_1 (T - T_{rs}) + \frac{b_1}{2} (T^2 - T_{rs}^2) + \frac{c_1}{3} (T^3 - T_{rs}^3) + H_IG
+$$</p>
+<p>where ( a_1, b_1, c_1 ) are constants, ( T ) is the current temperature, and ( T_{rs} ) is the reference temperature.</p>
+</li>
+<li>
+<p><strong>Purpose:</strong>
+The function calculates the change in specific heat capacity between two temperatures. It helps in determining the enthalpy change when the heat capacity is not constant.</p>
+</li>
+</ul>
+<pre class="hljs"><code><div>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">d_alpha</span><span class="hljs-params">(T)</span>:</span>
+    k = <span class="hljs-number">0.37464</span> + <span class="hljs-number">1.54226</span>*w - <span class="hljs-number">0.26992</span>*w**<span class="hljs-number">2</span>    <span class="hljs-comment"># Peng-Robinson k</span>
+    <span class="hljs-keyword">return</span> - (<span class="hljs-number">1</span> + k*(<span class="hljs-number">1</span> - np.sqrt(T/Tc))) * ( k / Tc * np.sqrt(Tc/T))
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">delta_H</span><span class="hljs-params">(T, P)</span>:</span>
+    k = <span class="hljs-number">0.37464</span> + <span class="hljs-number">1.54226</span>*w - <span class="hljs-number">0.26992</span>*w**<span class="hljs-number">2</span>    <span class="hljs-comment"># Peng-Robinson k</span>
+    alpha = (<span class="hljs-number">1</span> + k * (<span class="hljs-number">1</span> - np.sqrt(T/Tc)))**<span class="hljs-number">2</span>
+    b = calc_b()
+    B = b * P / (R * T)
+    Z1, Z3 , V1, V3 = calculate_properties(T, P)
+    H1 = R * T * (Z1 - <span class="hljs-number">1</span>) +(( T * a * d_alpha(T) - (a * alpha)) * np.log((Z1 + B + B * np.sqrt(<span class="hljs-number">2</span>)) / (Z1 + B - B * np.sqrt(<span class="hljs-number">2</span>))))/(<span class="hljs-number">2</span>* np.sqrt(<span class="hljs-number">2</span>) * b )
+    H3 = R * T * (Z3 - <span class="hljs-number">1</span>) +(( T * a * d_alpha(T) - (a * alpha)) * np.log((Z3 + B + B * np.sqrt(<span class="hljs-number">2</span>)) / (Z3 + B - B * np.sqrt(<span class="hljs-number">2</span>))))/(<span class="hljs-number">2</span>* np.sqrt(<span class="hljs-number">2</span>) * b )
+    <span class="hljs-keyword">return</span> H1, H3 
+</div></code></pre>
+<ul>
+<li><strong><code>calc_H(T, P,)</code></strong>: Computes the total enthalpy change considering the heat capacity integral and enthalpy changes.</li>
+</ul>
+<pre class="hljs"><code><div>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">calc_H</span><span class="hljs-params">(T , P , Trs)</span>:</span>
+    H1 ,H3 =  delta_H(T, P)
+    dH1 = H1 + integral_Cp(T, Trs)
+    dH3 = H3 + integral_Cp(T, Trs)
+    <span class="hljs-keyword">return</span> dH1 , dH3
+</div></code></pre>
+<h3 id="4-pressure-saturation-calculation">4. <strong>Pressure Saturation Calculation</strong></h3>
+<ul>
+<li><strong><code>compute_integral(P, R, T, a, b, P_min, k=0.001)</code></strong>: Calculates the saturation pressure using an iterative approach to achieve a specific integral condition.</li>
+</ul>
+<h2 id="equations-used-in-the-code">Equations Used in the Code</h2>
+<h3 id="5-enthalpy-change--deltah--calculation">5. Enthalpy Change ( Delta_H ) Calculation</h3>
+<p>The enthalpy change (Delta_H) for each phase (liquid and vapor) can be calculated using the PR-EOS along with heat capacity terms. For a given temperature ( T ) and pressure ( P ), the enthalpy change from the reference state is:</p>
+<p>$$
+\Delta H = RT(Z - 1) + \frac{T \cdot a \cdot \frac{d\alpha}{dT} - a \cdot \alpha}{2b\sqrt{2}} \ln \left( \frac{Z + B + B\sqrt{2}}{Z + B - B\sqrt{2}} \right) + \int_{T_{\text{rs}}}^{T} C_p , dT
+$$</p>
+<p>where:</p>
+<ul>
+<li>( Z ): Compressibility factor (root of the cubic equation above)</li>
+<li>( C_p ): Heat capacity</li>
+</ul>
+<h3 id="process-for-plotting-enthalpy-change-is-same-as-we-used-to-plot-pressure-volume-diagram">process for plotting enthalpy change is same as we used to plot pressure volume diagram</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">for</span> T <span class="hljs-keyword">in</span> temperature_list:
+    
+    <span class="hljs-comment"># Find the local maximum and minimum pressures for the given temperature</span>
+    result = minimize_scalar(<span class="hljs-keyword">lambda</span> Vm: -calculate_pressure(Vm, T), bounds=(<span class="hljs-number">0.00005</span>, <span class="hljs-number">0.01</span>), method=<span class="hljs-string">'bounded'</span>)
+    result_min = minimize_scalar(<span class="hljs-keyword">lambda</span> Vm: calculate_pressure(Vm, T), bounds=(<span class="hljs-number">0.00005</span>, <span class="hljs-number">0.01</span>), method=<span class="hljs-string">'bounded'</span>)
+
+    V_max = result.x
+    P_max = -result.fun
+    V_min = result_min.x
+    P_min = -result_min.fun
+
+    <span class="hljs-comment"># Calculate the saturation pressure for the temperature T</span>
+    P_sat = compute_integral(P_max, R, T, a, b, P_min)
+
+    <span class="hljs-comment"># Generate the PV curve for the temperature T</span>
+    Vm = np.linspace(<span class="hljs-number">0.00005</span>, <span class="hljs-number">0.01</span>, <span class="hljs-number">1000</span>)  <span class="hljs-comment"># m^3/mol, narrow around the critical region</span>
+
+    H_values = []
+    <span class="hljs-keyword">for</span> P <span class="hljs-keyword">in</span> pressure_values:
+        H1 , H3 = calc_H(T, P, Trs)
+        H1/=<span class="hljs-number">1000</span>
+        H3/=<span class="hljs-number">1000</span>
+        <span class="hljs-comment"># Check if H is a scalar</span>
+        <span class="hljs-keyword">if</span> H1 == H3:
+            H_values.append(H1)
+        <span class="hljs-keyword">elif</span> P &gt; P_sat:
+            H_values.append(H1)
+        <span class="hljs-keyword">else</span>:
+            H_values.append(H3)
+
+    <span class="hljs-comment"># Plot the enthalpy curve for the current temperature</span>
+    fig.add_trace(go.Scatter(x=H_values, y=pressure_values, mode=<span class="hljs-string">'lines'</span>, name=<span class="hljs-string">f'T = <span class="hljs-subst">{T}</span> K'</span>))
+</div></code></pre>
+<p><img src="./PvsH.png" alt="Enthalpy vs Pressure Plot for Formaldehyde"></p>
+<h1 id="formulae-used-in-the-peng-robinson-equation-of-state-implementation">Formulae Used in the Peng-Robinson Equation of State Implementation</h1>
+<h2 id="1-entropy-formula">1. <strong>Entropy Formula</strong></h2>
+<p>For entropy, two contributions are calculated:</p>
+<ul>
+<li>
+<p>Entropy from the compressibility factor ( Z ):
+$$
+S_1 = R \cdot \ln(Z_1 - B) + \frac{d\alpha(T)}{2 \cdot \sqrt{2} \cdot b} \cdot \ln\left(\frac{Z_1 + (1 + \sqrt{2}) \cdot B}{Z_1 + (1 - \sqrt{2}) \cdot B}\right)
+$$
+$$
+S_2 = R \cdot \ln(Z_2 - B) + \frac{d\alpha(T)}{2 \cdot \sqrt{2} \cdot b} \cdot \ln\left(\frac{Z_2 + (1 + \sqrt{2}) \cdot B}{Z_2 + (1 - \sqrt{2}) \cdot B}\right)
+$$</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">delta_S</span><span class="hljs-params">(T, P)</span>:</span>
+     
+  b = calc_b()
+  B = b * P / (R * T)
+  Z1, Z2 , V1, V3 = calculate_properties(T, P)
+  S11 = R * np.log(Z1 - B)
+  S12 = (d_alpha(T) / (<span class="hljs-number">2</span> * np.sqrt(<span class="hljs-number">2</span>) * b)) * np.log((Z1 + (<span class="hljs-number">1</span> + np.sqrt(<span class="hljs-number">2</span>)) * B) / (Z1 + (<span class="hljs-number">1</span> - np.sqrt(<span class="hljs-number">2</span>)) * B))
+  
+  S21 = R * np.log(Z2 - B)
+  S22 = (d_alpha(T) / (<span class="hljs-number">2</span> * np.sqrt(<span class="hljs-number">2</span>) * b)) * np.log((Z2 + (<span class="hljs-number">1</span> + np.sqrt(<span class="hljs-number">2</span>)) * B) / (Z2 + (<span class="hljs-number">1</span> - np.sqrt(<span class="hljs-number">2</span>)) * B))
+
+  <span class="hljs-comment"># Combine both parts to get the entropy difference</span>
+  S1 = S11 + S12
+  S2 = S21 + S22
+  <span class="hljs-keyword">return</span> S1 , S2
+</div></code></pre>
+</li>
+<li>
+<p>Entropy from the heat capacity at constant pressure ( C_p ) (integral):
+$$
+\int \frac{C_p}{T} , dT = a_1 \cdot \ln\left(\frac{T}{T_{rs}}\right) + b_1 \cdot (T - T_{rs}) + \frac{c_1}{2} \cdot (T^2 - T_{rs}^2) + S_IG
+$$
+where:</p>
+<ul>
+<li>( a_1, b_1, c_1 ) are constants</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-comment"># Integrals for Cp and Cp/T</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">integral_Cp_by_T</span><span class="hljs-params">(T, Trs)</span>:</span>
+  term1 = a1 *np.log(T / Trs)
+  term2 = (b1) * (T - Trs)
+  term3 = (c1 / <span class="hljs-number">2</span>) * (T**<span class="hljs-number">2</span> - Trs**<span class="hljs-number">2</span>)
+  term4 = <span class="hljs-number">-1</span>*R*np.log(P / <span class="hljs-number">101325</span>)
+  <span class="hljs-keyword">return</span> term1 + term2 + term3 + term4
+</div></code></pre>
+</li>
+</ul>
+<h2 id="2-entropy-difference-s-calculation">2. <strong>Entropy Difference (S) Calculation</strong></h2>
+<p>The total entropy ( S ) is calculated as:
+$$
+S = S_1 + \int \frac{C_p}{T} , dT
+$$</p>
+<h2 id="3-integral-calculation-for--p">3. <strong>Integral Calculation for ( P )</strong></h2>
+<p>To calculate the pressure at different conditions, the integral function ( I(V) ) is computed as:
+$$
+I(V) = R \cdot T \cdot \ln|V - b| - \frac{a}{2b\sqrt{2}} \cdot \ln\left|\frac{V + b - b\sqrt{2}}{V + b + b\sqrt{2}}\right|
+$$
+where the integral function is used to adjust for different pressures and temperatures.</p>
+<pre class="hljs"><code><div>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">calc_S</span><span class="hljs-params">(T , P , Trs)</span>:</span>
+    S1 ,S3 =  delta_S(T, P)
+    dS1 = S1 + integral_Cp_by_T(T, Trs)
+    dS3 = S3 + integral_Cp_by_T(T, Trs)
+    <span class="hljs-keyword">return</span> dS1 , dS3
+</div></code></pre>
+<h2 id="4-saturation-pressure-calculation">4. <strong>Saturation Pressure Calculation</strong></h2>
+<p>The saturation pressure ( P_{\text{sat}} ) is derived from the integral and calculated by iterating over different pressures until convergence is reached:
+$$
+P_{\text{sat}} = \text{integral_function}(V_2) - \text{integral_function}(V_1)
+$$</p>
+<h1 id="entropy-calculation-across-temperature-range">Entropy Calculation Across Temperature Range</h1>
+<p>This code snippet calculates entropy values across a temperature range (<code>temperature_list</code>) and appends the values to <code>S_values</code> based on specific conditions using <code>calc_S</code> for a given pressure <code>P</code> and temperature <code>T</code>.</p>
+<h2 id="code-explanation">Code Explanation</h2>
+<ol>
+<li>
+<p><strong>Initialize <code>S_values</code> List</strong></p>
+<p>Start with an empty list <code>S_values</code> to store calculated entropy values.</p>
+<pre class="hljs"><code><div>S_values = []
+ <span class="hljs-keyword">for</span> T <span class="hljs-keyword">in</span> temperature_list:
+     S1 , S3 = calc_S(T, P, Trs)
+     S1/=<span class="hljs-number">1000</span>
+     S3/=<span class="hljs-number">1000</span>
+     <span class="hljs-comment"># Check if H is a scalar</span>
+     <span class="hljs-keyword">if</span> S1 == S3:
+         S_values.append(S1)
+     <span class="hljs-keyword">elif</span> P &gt; P_sat:
+         S_values.append(S3)
+     <span class="hljs-keyword">else</span>:
+         S_values.append(S1)
+</div></code></pre>
+</li>
+</ol>
+<h4 id="calculate-entropy-values-s1-and-s3">Calculate Entropy Values S1 and S3</h4>
+<p>Call the calc_S function to calculate entropy values S1 and S3 at the given temperature T, pressure P, and reference temperature Trs. These values are divided by 1000 to adjust units.<br>
+If S1 is equal to S3: Append S1 to S_values.
+If Pressure P is greater than Saturation Pressure P_sat: Append S3 to S_values.
+Otherwise: Append S1 to S_values.</p>
+<p><img src="./PvsS.png" alt="Entropy vs Pressure Plot for Formaldehyde">
+<img src="./TvsS.png" alt="Temperature vs Entropy Plot for Formaldehyde"></p>
+
+</body>
+</html>
